@@ -6,12 +6,12 @@
   ),
   1 => 
   array (
-    'nama' => 'Aminah',
-    'jabatan' => 'Staff',
+    'nama' => 'Ridwan',
+    'jabatan' => 'Manager',
   ),
   2 => 
   array (
-    'nama' => 'Ridwan',
-    'jabatan' => 'Manager',
+    'nama' => 'Aldo',
+    'jabatan' => 'Supervisor',
   ),
 );

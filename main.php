@@ -87,9 +87,15 @@ function hapusKaryawan() {
         echo warna("Karyawan tidak ditemukan!\n", "31");
         return;
     }
+    echo "Apakah Anda yakin ingin menghapus {$karyawan[$index]['nama']}? (y/n): ";
+    $konfirmasi = trim(fgets(STDIN));
+    if (strtolower($konfirmasi) !== 'y') {
+        echo "Penghapusan dibatalkan.\n";
+        return;
+    }
     unset($karyawan[$index]);
     simpanKaryawan(array_values($karyawan));
-    echo warna("Karyawan berhasil dihapus!\n", "32");
+    echo "Karyawan berhasil dihapus!\n";
 }
 
 // Fungsi menghitung gaji karyawan
