@@ -78,25 +78,37 @@ function updateKaryawan() {
 }
 
 // Fungsi menghapus karyawan
+// Fungsi menghapus karyawan dengan konfirmasi lebih jelas
 function hapusKaryawan() {
     $karyawan = bacaKaryawan();
     lihatKaryawan();
+    
     echo warna("Masukkan nomor karyawan yang akan dihapus: ", "33");
     $index = (int) trim(fgets(STDIN));
+
     if (!isset($karyawan[$index])) {
         echo warna("Karyawan tidak ditemukan!\n", "31");
         return;
     }
-    echo "Apakah Anda yakin ingin menghapus {$karyawan[$index]['nama']}? (y/n): ";
+
+    // Tampilkan detail karyawan yang akan dihapus
+    echo warna("\nAnda akan menghapus karyawan berikut:\n", "35");
+    echo warna("Nama: ", "31") . warna("[{$karyawan[$index]['nama']}]\n", "32");
+    echo warna("Jabatan: ", "31") . warna("[{$karyawan[$index]['jabatan']}]\n", "32");
+
+    echo warna("\nApakah Anda yakin ingin menghapus? (y/n): ", "36");
     $konfirmasi = trim(fgets(STDIN));
+
     if (strtolower($konfirmasi) !== 'y') {
-        echo "Penghapusan dibatalkan.\n";
+        echo warna("Penghapusan dibatalkan.\n", "31");
         return;
     }
+
     unset($karyawan[$index]);
     simpanKaryawan(array_values($karyawan));
-    echo "Karyawan berhasil dihapus!\n";
+    echo warna("Karyawan berhasil dihapus!\n", "32");
 }
+
 
 // Fungsi menghitung gaji karyawan
 function hitungGaji() {

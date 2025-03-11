@@ -9,9 +9,4 @@
     'nama' => 'Ridwan',
     'jabatan' => 'Manager',
   ),
-  2 => 
-  array (
-    'nama' => 'Aldo',
-    'jabatan' => 'Supervisor',
-  ),
 );
